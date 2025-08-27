@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tools/install-build-deps:*)",
+      "Bash(uv venv:*)",
+      "Bash(ui/build:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(lsof:*)",
+      "WebFetch(domain:tonghuikang.github.io)",
+      "Bash(./tools/format-sources:*)",
+      "Bash(tools/format-python-sources:*)"
+    ],
+    "deny": []
+  }
+}

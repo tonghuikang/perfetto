@@ -30,7 +30,12 @@
 /bazel-*
 /compile_commands.json
 /fuzz_out/
-/out*
+/out/*
+!/out/ui/
+/out/ui/*
+!/out/ui/ui/
+/out/ui/ui/*
+!/out/ui/ui/dist/
 /ui/dist
 /venv/*
 depot_tools/

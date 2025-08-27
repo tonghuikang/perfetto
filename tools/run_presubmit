@@ -265,6 +265,10 @@ def CheckChangeHasNoTabs(changed_files: List[str]) -> List[str]:
           'Makefile',
           'rules',
           '*.descriptor',
+          '*.woff2',
+          '*.wasm',
+          '*.json',
+          'out/ui/ui/dist/*',
       ])
 
   for f_path in files_to_check_list:
