@@ -15,7 +15,8 @@
       "mcp__puppeteer__puppeteer_click",
       "Bash(./build)",
       "Bash(python3:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(kill:*)"
     ],
     "deny": []
   },

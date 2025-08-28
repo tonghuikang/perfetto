@@ -120,24 +120,22 @@ Technical Information:
       script.src = version + '/frontend_bundle.js';
       script.onerror = () => errHandler(`Failed to load ${script.src}`);
 
-      document.head.append(script);
-    })();
-
-    // Auto-load pytorch_trace.json if no trace is specified
-    (function autoLoadTrace() {
+      // Auto-load pytorch_trace.json BEFORE loading Perfetto frontend
       const currentUrl = window.location.href;
-      const hasTraceParam = currentUrl.includes('url=') || currentUrl.includes('local_cache_key=');
+      const hasTraceParam = currentUrl.includes('url=');
+      const hasFragment = currentUrl.includes('#!/');
       
-      if (!hasTraceParam && !currentUrl.includes('#!/')) {
+      // Only redirect if we don't have a trace param and we're on the base URL
+      if (!hasTraceParam && !hasFragment) {
         // Redirect to load pytorch_trace.json
         const baseUrl = window.location.origin + window.location.pathname.replace('index.html', '');
         const traceUrl = baseUrl + 'pytorch_trace.json';
         const newUrl = baseUrl + '#!/?url=' + encodeURIComponent(traceUrl);
         window.location.replace(newUrl);
-      } else if (!hasTraceParam && currentUrl.includes('#!/viewer?local_cache_key')) {
-        // Clean up the default fragment if no trace is loaded
-        window.location.replace(currentUrl.split('#!/')[0]);
+        return; // Don't load the frontend
       }
+
+      document.head.append(script);
     })();
   </script>
 </body>
