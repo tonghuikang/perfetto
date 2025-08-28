@@ -1,6 +1,6 @@
 {
-  "buildCommand": "cd ui && pnpm install && ./build --out ../out/ui",
+  "buildCommand": "echo 'Using pre-built artifacts'",
   "outputDirectory": "out/ui/ui/dist",
-  "installCommand": "npm install -g pnpm",
+  "installCommand": "",
   "framework": null
 }
