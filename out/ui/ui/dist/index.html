@@ -133,7 +133,10 @@ Technical Information:
         const baseUrl = window.location.origin + window.location.pathname.replace('index.html', '');
         const traceUrl = baseUrl + 'pytorch_trace.json';
         const newUrl = baseUrl + '#!/?url=' + encodeURIComponent(traceUrl);
-        window.location.href = newUrl;
+        window.location.replace(newUrl);
+      } else if (!hasTraceParam && currentUrl.includes('#!/viewer?local_cache_key')) {
+        // Clean up the default fragment if no trace is loaded
+        window.location.replace(currentUrl.split('#!/')[0]);
       }
     })();
   </script>
