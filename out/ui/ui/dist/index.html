@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <link rel="shortcut icon" id="favicon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
 </head>
-<body data-perfetto_version='{"stable":"v51.2-d62ea8c76"}'>
+<body data-perfetto_version='{"stable":"v51.2-39b27498e"}'>
   <!--
     Don't add any content here. The whole <body> is replaced by
     frontend/index.ts when bootstrapping. This is only used for very early
@@ -121,6 +121,20 @@ Technical Information:
       script.onerror = () => errHandler(`Failed to load ${script.src}`);
 
       document.head.append(script);
+    })();
+
+    // Auto-load pytorch_trace.json if no trace is specified
+    (function autoLoadTrace() {
+      const currentUrl = window.location.href;
+      const hasTraceParam = currentUrl.includes('url=') || currentUrl.includes('local_cache_key=');
+      
+      if (!hasTraceParam && !currentUrl.includes('#!/')) {
+        // Redirect to load pytorch_trace.json
+        const baseUrl = window.location.origin + window.location.pathname;
+        const traceUrl = baseUrl + 'pytorch_trace.json';
+        const newUrl = baseUrl + '#!/?url=' + encodeURIComponent(traceUrl);
+        window.location.href = newUrl;
+      }
     })();
   </script>
 </body>
