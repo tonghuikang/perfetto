@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd ui && ./build --out ../out/ui",
+  "outputDirectory": "out/ui/ui/dist",
+  "installCommand": "cd ui && npm install",
+  "framework": null
+}
