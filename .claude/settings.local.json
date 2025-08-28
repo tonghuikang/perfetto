@@ -8,8 +8,19 @@
       "Bash(lsof:*)",
       "WebFetch(domain:tonghuikang.github.io)",
       "Bash(./tools/format-sources:*)",
-      "Bash(tools/format-python-sources:*)"
+      "Bash(tools/format-python-sources:*)",
+      "mcp__puppeteer__puppeteer_navigate",
+      "mcp__puppeteer__puppeteer_evaluate",
+      "mcp__puppeteer__puppeteer_screenshot",
+      "mcp__puppeteer__puppeteer_click",
+      "Bash(./build)",
+      "Bash(python3:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "puppeteer"
+  ]
 }

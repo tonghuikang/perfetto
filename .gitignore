@@ -46,3 +46,4 @@ GTAGS
 mise.toml
 perf.data*
 TAGS
+trace_ui.log
